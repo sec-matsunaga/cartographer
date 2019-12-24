@@ -230,7 +230,6 @@ TEST_P(MapBuilderTestByGridType, GlobalSlam2D) {
   }
   map_builder_->FinishTrajectory(trajectory_id);
   map_builder_->pose_graph()->RunFinalOptimization();
-/*
   EXPECT_EQ(local_slam_result_poses_.size(), measurements.size());
   EXPECT_NEAR(kTravelDistance,
               (local_slam_result_poses_.back().translation() -
@@ -242,6 +241,7 @@ TEST_P(MapBuilderTestByGridType, GlobalSlam2D) {
               ::testing::Contains(::testing::Field(
                   &PoseGraphInterface::Constraint::tag,
                   PoseGraphInterface::Constraint::INTER_SUBMAP)));
+/*
   const auto trajectory_nodes =
       map_builder_->pose_graph()->GetTrajectoryNodes();
   EXPECT_GE(trajectory_nodes.SizeOfTrajectoryOrZero(trajectory_id), 20);
